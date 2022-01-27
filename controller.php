@@ -1,4 +1,4 @@
-public function login(){
+<?php
     
     if(isset($_POST['submit'])){
       // echo 'sent it ';
@@ -96,4 +96,4 @@ public function login(){
     }else{
       // echo 'not yet';
     }
-  }
+  <?php>
