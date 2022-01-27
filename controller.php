@@ -53,7 +53,7 @@
             // if the password matches --===============----------------------
             $results = $this->Users->getRow($email);
             $hash =$results[0]['password'] !== $password
-            if(!var_dump(password_verify($password, $hash))){
+            if(!password_verify($password, $hash)){
                 $validationList['email'] = 'メールアドレスかパスワードが違います';
                 $validationFlag = false;
                 echo '<br>メールアドレスかパスワードが違います';
