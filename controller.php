@@ -39,18 +39,11 @@
 
         // start login varificataion ------------------------
         // if the user exists -----===================-------------------
-        
-
-        // $sql = 'SELECT * FROM users ';
-        // $result =mysqli_query($GLOBALS['connection'], $sql);
-        // print_r($result);
 
         $sql = "SELECT email from users where email = '$email'";
         $result =mysqli_query($GLOBALS['connection'], $sql);
 
-       
-        // echo $result;
-            
+     
         if(!mysqli_num_rows($result)){
             $validationList['email'] = 'メールアドレスか存在しません';
             $validationFlag = false;
