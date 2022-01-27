@@ -52,7 +52,6 @@ public function login(){
         // echo $result;
             
         if(!mysqli_num_rows($result)){
-            // $validationList['email'] = 'メールアドレスかパスワードが違います';
             $validationList['email'] = 'メールアドレスか存在しません';
             $validationFlag = false;
             echo '<br>メールアドレスか存在しません';
@@ -60,8 +59,8 @@ public function login(){
         }else{
             // if the password matches --===============----------------------
             $results = $this->Users->getRow($email);
-
-            if($results[0]['password'] !== $password){
+            $hash =$results[0]['password'] !== $password
+            if(!var_dump(password_verify($password, $hash))){
                 $validationList['email'] = 'メールアドレスかパスワードが違います';
                 $validationFlag = false;
                 echo '<br>メールアドレスかパスワードが違います';
